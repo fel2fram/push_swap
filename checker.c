@@ -50,6 +50,7 @@ int	gnl(t_pile *p1, t_pile *p2)
 			error = 1;
 		free(*aline);
 	}
+	free(*aline);
 	return (error);
 }
 
@@ -89,5 +90,9 @@ int	main(int argc, char **argv)
 	else
 		write(2, "Error\n", 6);
 	if (l)
+	{
+		while (argc >= 0)
+			free(argv[argc--]);
 		free(argv);
+	}
 }

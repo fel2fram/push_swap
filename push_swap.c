@@ -100,5 +100,9 @@ int	main(int argc, char **argv)
 	else
 		write(2, "Error\n", 6);
 	if (l)
+	{
+		while (argc >= 0)
+			free(argv[argc--]);
 		free(argv);
+	}
 }
